@@ -9,6 +9,14 @@ class NoiseGenerator {
         this.masterGain = null;
         this.analyser = null;
 
+        // Filter nodes
+        this.lowCutFilter = null;
+        this.highCutFilter = null;
+
+        // Modulation
+        this.lfo = null;
+        this.lfoGain = null;
+
         // Noise sources
         this.noiseNodes = {
             white: { source: null, gain: null },
@@ -19,6 +27,16 @@ class NoiseGenerator {
         this.isPlaying = false;
         this.timerInterval = null;
         this.timerRemaining = 0;
+
+        // Advanced settings
+        this.settings = {
+            lowCut: 20,
+            highCut: 20000,
+            stereoWidth: 100,
+            oscillation: 0,
+            oscillationRate: 0.1,
+            fadeTime: 3
+        };
 
         // Visualization
         this.canvas = null;
@@ -38,16 +56,43 @@ class NoiseGenerator {
 
         this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
+        // Create filters
+        this.lowCutFilter = this.audioContext.createBiquadFilter();
+        this.lowCutFilter.type = 'highpass';
+        this.lowCutFilter.frequency.value = this.settings.lowCut;
+        this.lowCutFilter.Q.value = 0.7;
+
+        this.highCutFilter = this.audioContext.createBiquadFilter();
+        this.highCutFilter.type = 'lowpass';
+        this.highCutFilter.frequency.value = this.settings.highCut;
+        this.highCutFilter.Q.value = 0.7;
+
+        // Create LFO for oscillation/modulation
+        this.lfo = this.audioContext.createOscillator();
+        this.lfo.type = 'sine';
+        this.lfo.frequency.value = this.settings.oscillationRate;
+
+        this.lfoGain = this.audioContext.createGain();
+        this.lfoGain.gain.value = 0; // Start with no modulation
+
+        this.lfo.connect(this.lfoGain);
+        this.lfo.start();
+
         // Create master gain
         this.masterGain = this.audioContext.createGain();
         this.masterGain.gain.value = 0.5;
+
+        // Connect LFO to master gain for tremolo effect
+        this.lfoGain.connect(this.masterGain.gain);
 
         // Create analyser for visualization
         this.analyser = this.audioContext.createAnalyser();
         this.analyser.fftSize = 2048;
 
-        // Connect master gain through analyser to output
-        this.masterGain.connect(this.analyser);
+        // Signal chain: noise sources -> masterGain -> lowCut -> highCut -> analyser -> destination
+        this.masterGain.connect(this.lowCutFilter);
+        this.lowCutFilter.connect(this.highCutFilter);
+        this.highCutFilter.connect(this.analyser);
         this.analyser.connect(this.audioContext.destination);
 
         // Create noise sources
@@ -165,6 +210,56 @@ class NoiseGenerator {
                 0.1
             );
         }
+    }
+
+    // Advanced control setters
+    setLowCut(frequency) {
+        this.settings.lowCut = frequency;
+        if (this.lowCutFilter) {
+            this.lowCutFilter.frequency.setTargetAtTime(
+                frequency,
+                this.audioContext.currentTime,
+                0.1
+            );
+        }
+    }
+
+    setHighCut(frequency) {
+        this.settings.highCut = frequency;
+        if (this.highCutFilter) {
+            this.highCutFilter.frequency.setTargetAtTime(
+                frequency,
+                this.audioContext.currentTime,
+                0.1
+            );
+        }
+    }
+
+    setOscillationDepth(depth) {
+        this.settings.oscillation = depth;
+        if (this.lfoGain) {
+            // Depth 0-1 maps to modulation amount
+            this.lfoGain.gain.setTargetAtTime(
+                depth * 0.5, // Max 50% modulation
+                this.audioContext.currentTime,
+                0.1
+            );
+        }
+    }
+
+    setOscillationRate(rate) {
+        this.settings.oscillationRate = rate;
+        if (this.lfo) {
+            this.lfo.frequency.setTargetAtTime(
+                rate,
+                this.audioContext.currentTime,
+                0.1
+            );
+        }
+    }
+
+    setFadeTime(seconds) {
+        this.settings.fadeTime = seconds;
     }
 
     applyPreset(preset) {
@@ -486,6 +581,65 @@ class NoiseGenerator {
                 e.preventDefault();
                 this.toggle();
             }
+        });
+
+        // Advanced controls
+        this.setupAdvancedControls();
+    }
+
+    setupAdvancedControls() {
+        // Low cut filter
+        const lowCutSlider = document.getElementById('lowCut');
+        const lowCutDisplay = document.getElementById('lowCutValue');
+        lowCutSlider?.addEventListener('input', (e) => {
+            const value = parseInt(e.target.value);
+            lowCutDisplay.textContent = value + ' Hz';
+            this.setLowCut(value);
+        });
+
+        // High cut filter
+        const highCutSlider = document.getElementById('highCut');
+        const highCutDisplay = document.getElementById('highCutValue');
+        highCutSlider?.addEventListener('input', (e) => {
+            const value = parseInt(e.target.value);
+            highCutDisplay.textContent = value + ' Hz';
+            this.setHighCut(value);
+        });
+
+        // Stereo width (visual only for now - would require stereo processing)
+        const stereoSlider = document.getElementById('stereoWidth');
+        const stereoDisplay = document.getElementById('stereoWidthValue');
+        stereoSlider?.addEventListener('input', (e) => {
+            const value = parseInt(e.target.value);
+            stereoDisplay.textContent = value + '%';
+            this.settings.stereoWidth = value;
+        });
+
+        // Oscillation depth
+        const oscSlider = document.getElementById('oscillation');
+        const oscDisplay = document.getElementById('oscillationValue');
+        oscSlider?.addEventListener('input', (e) => {
+            const value = parseInt(e.target.value) / 100;
+            oscDisplay.textContent = Math.round(value * 100) + '%';
+            this.setOscillationDepth(value);
+        });
+
+        // Oscillation rate
+        const rateSlider = document.getElementById('oscillationRate');
+        const rateDisplay = document.getElementById('oscillationRateValue');
+        rateSlider?.addEventListener('input', (e) => {
+            const value = parseInt(e.target.value) / 100; // 0.01 to 1 Hz
+            rateDisplay.textContent = value.toFixed(2) + ' Hz';
+            this.setOscillationRate(value);
+        });
+
+        // Fade time
+        const fadeSlider = document.getElementById('fadeTime');
+        const fadeDisplay = document.getElementById('fadeTimeValue');
+        fadeSlider?.addEventListener('input', (e) => {
+            const value = parseInt(e.target.value);
+            fadeDisplay.textContent = value + ' sec';
+            this.setFadeTime(value);
         });
     }
 }
