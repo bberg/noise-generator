@@ -28,6 +28,7 @@
         <nav class="mini-nav">
             <a href="#generator" class="nav-link"><i class="ri-sound-module-line"></i> Generator</a>
             <a href="#mixer" class="nav-link"><i class="ri-equalizer-line"></i> Mixer</a>
+            <a href="#presets" class="nav-link"><i class="ri-bookmark-line"></i> Presets</a>
             <a href="#advanced" class="nav-link"><i class="ri-settings-4-line"></i> Advanced</a>
             <a href="#about-noise" class="nav-link"><i class="ri-question-line"></i> Science</a>
             <a href="#algorithms" class="nav-link"><i class="ri-code-s-slash-line"></i> Math</a>
@@ -61,6 +62,12 @@
                         </button>
                         <button class="preset-btn" data-preset="brown">
                             <i class="ri-cloud-line"></i> Brown
+                        </button>
+                        <button class="preset-btn" data-preset="blue">
+                            <i class="ri-drop-line"></i> Blue
+                        </button>
+                        <button class="preset-btn" data-preset="violet">
+                            <i class="ri-sparkling-line"></i> Violet
                         </button>
                     </div>
                 </div>
@@ -120,6 +127,24 @@
                     <input type="range" id="brownLevel" min="0" max="100" value="0">
                     <span class="value" id="brownValue">0%</span>
                 </div>
+
+                <div class="noise-channel">
+                    <label for="blueLevel">
+                        <span class="noise-label">Blue Noise</span>
+                        <span class="noise-desc">High-frequency emphasis, crisp</span>
+                    </label>
+                    <input type="range" id="blueLevel" min="0" max="100" value="0">
+                    <span class="value" id="blueValue">0%</span>
+                </div>
+
+                <div class="noise-channel">
+                    <label for="violetLevel">
+                        <span class="noise-label">Violet Noise</span>
+                        <span class="noise-desc">Maximum high-frequency energy</span>
+                    </label>
+                    <input type="range" id="violetLevel" min="0" max="100" value="0">
+                    <span class="value" id="violetValue">0%</span>
+                </div>
             </div>
 
             <div class="control-group">
@@ -140,6 +165,25 @@
                 <div class="timer-display" id="timerDisplay">
                     <span class="timer-label">Time remaining:</span>
                     <span class="timer-value" id="timerValue">--:--</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Custom Presets -->
+        <div class="controls presets-section" id="presets">
+            <div class="control-group full-width">
+                <h3>Your Saved Presets</h3>
+                <div class="saved-presets" id="savedPresets">
+                    <p class="no-presets">No saved presets yet. Create your perfect mix and save it below.</p>
+                </div>
+                <div class="preset-actions">
+                    <input type="text" id="presetName" placeholder="Preset name..." maxlength="30">
+                    <button class="save-preset-btn" id="savePresetBtn">
+                        <i class="ri-save-line"></i> Save Current Mix
+                    </button>
+                    <button class="share-preset-btn" id="sharePresetBtn">
+                        <i class="ri-share-line"></i> Share Link
+                    </button>
                 </div>
             </div>
         </div>
@@ -206,19 +250,43 @@
                         <p>Also called Brownian or red noise, it has even more bass emphasis (6dB/octave rolloff). Named after Robert Brown who described Brownian motion, not the color. It produces a deep, rumbling sound like a waterfall, distant thunder, or strong wind. Many people find it the most relaxing noise color.</p>
                         <p class="noise-specs"><strong>Character:</strong> Deep, rumbly, powerful<br><strong>Best for:</strong> Deep relaxation, meditation, blocking low-frequency sounds</p>
                     </div>
+
+                    <div class="info-card">
+                        <h4><i class="ri-drop-line"></i> Blue Noise</h4>
+                        <p>The opposite of pink noise - higher frequencies are louder (+3dB/octave). Also called azure noise. The power density increases with frequency, creating a crisp, bright sound. Blue noise is used in audio dithering and some find it helpful for maintaining alertness.</p>
+                        <p class="noise-specs"><strong>Character:</strong> Crisp, bright, energizing<br><strong>Best for:</strong> Alertness, audio production, high-frequency tinnitus masking</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h4><i class="ri-sparkling-line"></i> Violet Noise</h4>
+                        <p>The opposite of brown noise - even more high-frequency emphasis (+6dB/octave). Also called purple noise. It has a sharp, airy quality due to the strong treble content. Some people find it helpful for masking high-pitched tinnitus sounds.</p>
+                        <p class="noise-specs"><strong>Character:</strong> Sharp, airy, bright<br><strong>Best for:</strong> High-frequency tinnitus, audio testing, differentiation effects</p>
+                    </div>
                 </div>
 
-                <h3>Benefits of Noise for Sleep and Focus</h3>
-                <p>Research suggests that consistent background noise can improve sleep quality and cognitive performance in several ways:</p>
+                <h3>Research-Backed Benefits</h3>
+                <p>Peer-reviewed scientific studies have examined the effects of noise on sleep, cognition, and well-being:</p>
 
                 <ul class="feature-list">
-                    <li><strong>Sound Masking:</strong> Continuous noise covers up sudden sounds (doors, traffic, conversations) that might otherwise disturb sleep or concentration</li>
-                    <li><strong>Reduced Cognitive Load:</strong> A consistent auditory environment reduces the brain's need to process changing sounds, freeing up mental resources</li>
-                    <li><strong>Sleep Onset:</strong> Studies show pink noise can help people fall asleep faster and experience deeper slow-wave sleep</li>
-                    <li><strong>Tinnitus Relief:</strong> Background noise can help mask the phantom sounds of tinnitus, providing relief for sufferers</li>
-                    <li><strong>Memory Consolidation:</strong> Some research indicates pink noise during sleep may enhance memory consolidation</li>
-                    <li><strong>ADHD and Focus:</strong> Some individuals with ADHD report improved focus with background noise, though results vary by person</li>
+                    <li><strong>Sleep Quality:</strong> A 2021 study in <em>Sleep Medicine</em> found that white noise significantly improved subjective and objective sleep measurements in participants living in high-noise environments <sup>[1]</sup></li>
+                    <li><strong>ADHD and Focus:</strong> A 2024 meta-analysis in the <em>Journal of the American Academy of Child & Adolescent Psychiatry</em> (k=13, N=335) found a small but statistically significant benefit of white and pink noise on task performance for individuals with ADHD (g=0.249, p<0.0001) <sup>[2]</sup></li>
+                    <li><strong>Sleep in Infants:</strong> Research shows white noise can extend total sleep time, improve sleep efficiency, and reduce awakenings in infants and toddlers <sup>[3]</sup></li>
+                    <li><strong>Pink Noise and Deep Sleep:</strong> A systematic review found that 81.9% of pink noise studies showed positive effects on sleep outcomes, compared to 33% for white noise <sup>[4]</sup></li>
+                    <li><strong>Tinnitus Masking:</strong> Sound therapy has been used since the 1920s for tinnitus relief. The American Tinnitus Association recommends sound enrichment as a key management strategy <sup>[5]</sup></li>
+                    <li><strong>Creativity:</strong> Research by Mehta et al. in the <em>Journal of Consumer Research</em> found that moderate ambient noise (~70dB) enhances creative cognition <sup>[6]</sup></li>
                 </ul>
+
+                <div class="citations-box">
+                    <h4>References</h4>
+                    <ol class="citations-list">
+                        <li>Messineo L, et al. (2021). "The effects of white noise on sleep and duration in individuals living in a high noise environment." <em>Sleep Medicine</em>. PMID: 34049045</li>
+                        <li>Nigg JT, et al. (2024). "Systematic Review and Meta-Analysis: Do White Noise or Pink Noise Help With Task Performance in Youth With ADHD?" <em>J Am Acad Child Adolesc Psychiatry</em>. PMID: 38428577</li>
+                        <li>Impact of white noise on sleep quality across age groups. (2025). <em>Sleep Medicine</em>. Meta-analysis of randomized controlled trials.</li>
+                        <li>Riedy SM, et al. (2021). "Noise as a sleep aid: A systematic review." <em>Sleep Medicine Reviews</em>. PMID: 33007706</li>
+                        <li>American Tinnitus Association. "Sound Therapy." ata.org/about-tinnitus/sound-therapy/</li>
+                        <li>Mehta R, et al. (2012). "Is Noise Always Bad? Exploring the Effects of Ambient Noise on Creative Cognition." <em>Journal of Consumer Research</em>.</li>
+                    </ol>
+                </div>
 
                 <h3>Choosing the Right Noise</h3>
                 <p>The best noise color depends on your personal preference and intended use:</p>
@@ -229,15 +297,26 @@
                     <li><strong>For Relaxation:</strong> Brown noise is often the most relaxing due to its deep, soothing quality</li>
                     <li><strong>For Tinnitus:</strong> Start with pink noise, then experiment. The goal is to match the frequency range of your tinnitus</li>
                     <li><strong>For Babies:</strong> White noise is traditional, but pink noise may be safer for developing ears due to lower high-frequency content</li>
+                    <li><strong>For ADHD:</strong> Research supports white or pink noise for improved attention. Individual response varies - experiment to find what works for you</li>
+                </ul>
+
+                <h3>Tinnitus Relief</h3>
+                <p>Tinnitus (ringing, buzzing, or hissing in the ears) affects millions worldwide. Sound therapy is one of the most accessible management approaches:</p>
+                <ul class="feature-list">
+                    <li><strong>Masking:</strong> External sound covers the perceived tinnitus, providing immediate relief. Match the noise frequency to your tinnitus pitch</li>
+                    <li><strong>Habituation:</strong> Low-level background noise helps the brain learn to ignore tinnitus over time. Use at barely audible levels</li>
+                    <li><strong>Sound Enrichment:</strong> Consistent audio stimulation may help compensate for hearing loss that often accompanies tinnitus</li>
+                    <li><strong>Recommended approach:</strong> Start with pink noise at a low volume. Adjust the low/high cut filters to focus on your tinnitus frequency range</li>
                 </ul>
 
                 <h3>Safe Listening Practices</h3>
                 <p>While noise generators are generally safe, follow these guidelines:</p>
                 <ul class="feature-list">
-                    <li><strong>Keep Volume Moderate:</strong> Listen at the lowest effective volume. If you need to raise your voice to be heard over the noise, it's too loud</li>
+                    <li><strong>Keep Volume Moderate:</strong> Listen at the lowest effective volume. If you need to raise your voice to be heard over the noise, it's too loud. Research suggests some devices can exceed 91dB at max volume <sup>[7]</sup></li>
                     <li><strong>Use Quality Speakers/Headphones:</strong> Cheap speakers can distort at certain frequencies, reducing effectiveness and potentially causing fatigue</li>
                     <li><strong>Take Breaks:</strong> If using for extended periods, give your ears periodic rest</li>
                     <li><strong>Distance Matters:</strong> Place speakers at a reasonable distance rather than right next to your head</li>
+                    <li><strong>For Infants:</strong> Place the noise source away from the crib and use the lowest effective volume. Consult your pediatrician for personalized guidance</li>
                 </ul>
             </article>
         </section>
@@ -300,6 +379,35 @@ for each sample:
     lastOut = output[i]</pre>
                         <p>Brown noise is the integral of white noise, equivalent to Brownian motion in one dimension. Each sample depends on the previous, creating a "random walk". The leaky integrator (division by 1.02) prevents DC drift while maintaining the 1/f<sup>2</sup> characteristic.</p>
                         <p class="noise-specs"><strong>Spectral slope:</strong> -6 dB/octave<br><strong>Physical analog:</strong> Brownian particle motion</p>
+                    </div>
+
+                    <div class="info-card algorithm-card">
+                        <h4><i class="ri-drop-line"></i> Blue Noise (a = -1)</h4>
+                        <div class="math-block small">
+                            <code>S(f) = f</code>
+                        </div>
+                        <p><strong>Algorithm:</strong> Differentiated pink noise</p>
+                        <pre class="code-block">// High-pass filter approach
+for each sample:
+    blue[i] = white[i] - white[i-1]
+    // Apply light smoothing to reduce harshness</pre>
+                        <p>Blue noise is the derivative of pink noise, boosting high frequencies by +3dB per octave. Also called "azure noise," it's commonly used in audio dithering and error diffusion in image processing.</p>
+                        <p class="noise-specs"><strong>Spectral slope:</strong> +3 dB/octave<br><strong>Applications:</strong> Audio dithering, halftoning</p>
+                    </div>
+
+                    <div class="info-card algorithm-card">
+                        <h4><i class="ri-sparkling-line"></i> Violet Noise (a = -2)</h4>
+                        <div class="math-block small">
+                            <code>S(f) = f<sup>2</sup></code>
+                        </div>
+                        <p><strong>Algorithm:</strong> Differentiated white noise</p>
+                        <pre class="code-block">lastSample = 0
+for each sample:
+    white = random(-1, 1)
+    violet[i] = white - lastSample
+    lastSample = white</pre>
+                        <p>Violet noise (also called purple noise) is the derivative of white noise, with power increasing proportionally to f<sup>2</sup>. This creates strong high-frequency emphasis, useful for testing treble response and masking high-pitched tinnitus.</p>
+                        <p class="noise-specs"><strong>Spectral slope:</strong> +6 dB/octave<br><strong>Mathematical:</strong> First derivative of white noise</p>
                     </div>
                 </div>
 

@@ -648,6 +648,168 @@ body {
     font-weight: 600;
 }
 
+/* Presets Section */
+.presets-section {
+    display: block;
+    padding: 0 3rem 2rem;
+}
+
+.presets-section .control-group.full-width {
+    width: 100%;
+}
+
+.saved-presets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    min-height: 40px;
+}
+
+.no-presets {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    font-style: italic;
+}
+
+.saved-preset-item {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    background: var(--surface-raised);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.load-preset-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    background: transparent;
+    border: none;
+    color: var(--text);
+    font-size: 0.8125rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.load-preset-btn:hover {
+    background: var(--surface);
+    color: var(--primary);
+}
+
+.delete-preset-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    background: transparent;
+    border: none;
+    border-left: 1px solid var(--border);
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.delete-preset-btn:hover {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+}
+
+.preset-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.preset-actions input[type="text"] {
+    flex: 1;
+    min-width: 150px;
+    padding: 0.625rem 1rem;
+    background: var(--surface-raised);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+    font-size: 0.875rem;
+}
+
+.preset-actions input[type="text"]:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.preset-actions input[type="text"]::placeholder {
+    color: var(--text-muted);
+}
+
+.save-preset-btn,
+.share-preset-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1rem;
+    background: var(--surface-raised);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.save-preset-btn:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #000;
+}
+
+.share-preset-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+/* Citations Box */
+.citations-box {
+    background: var(--surface-raised);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+}
+
+.citations-box h4 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.citations-list {
+    list-style: decimal;
+    padding-left: 1.5rem;
+    margin: 0;
+}
+
+.citations-list li {
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
+}
+
+.citations-list li:last-child {
+    margin-bottom: 0;
+}
+
+.citations-list em {
+    font-style: italic;
+}
+
 /* Advanced Controls Section */
 .advanced-controls {
     padding: 0 3rem 2rem;
@@ -897,5 +1059,17 @@ body {
 
     .footer-bottom {
         padding: 1rem 1.5rem;
+    }
+
+    .presets-section {
+        padding: 0 1.5rem 1.5rem;
+    }
+
+    .preset-actions {
+        flex-direction: column;
+    }
+
+    .preset-actions input[type="text"] {
+        width: 100%;
     }
 }
