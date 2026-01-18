@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noise Generator - White, Pink & Brown Noise for Sleep, Focus & Relaxation</title>
+    <meta name="description" content="Free online noise generator with white, pink, and brown noise. Perfect for sleep, focus, studying, relaxation, and tinnitus masking. No downloads required.">
+    <meta name="keywords" content="noise generator, white noise, pink noise, brown noise, sleep sounds, focus music, relaxation, tinnitus masking">
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="page-header">
+            <div class="header-content">
+                <h1>Noise Generator</h1>
+                <p class="tagline">White, pink & brown noise for sleep, focus, and relaxation</p>
+            </div>
+            <div class="header-badges">
+                <span class="header-badge"><i class="ri-moon-line"></i> Sleep</span>
+                <span class="header-badge"><i class="ri-focus-3-line"></i> Focus</span>
+                <span class="header-badge"><i class="ri-heart-pulse-line"></i> Relax</span>
+            </div>
+        </header>
+
+        <nav class="mini-nav">
+            <a href="#generator" class="nav-link"><i class="ri-sound-module-line"></i> Generator</a>
+            <a href="#mixer" class="nav-link"><i class="ri-equalizer-line"></i> Mixer</a>
+            <a href="#about-noise" class="nav-link"><i class="ri-question-line"></i> The Science</a>
+        </nav>
+
+        <div class="main-controls" id="generator">
+            <!-- Presets -->
+            <div class="presets">
+                <div class="preset-group">
+                    <h3>Use Cases</h3>
+                    <div class="preset-buttons">
+                        <button class="preset-btn" data-preset="sleep">
+                            <i class="ri-moon-line"></i> Sleep
+                        </button>
+                        <button class="preset-btn" data-preset="focus">
+                            <i class="ri-focus-3-line"></i> Focus
+                        </button>
+                        <button class="preset-btn" data-preset="relax">
+                            <i class="ri-heart-pulse-line"></i> Relax
+                        </button>
+                    </div>
+                </div>
+                <div class="preset-group">
+                    <h3>Pure Noise Types</h3>
+                    <div class="preset-buttons">
+                        <button class="preset-btn" data-preset="white">
+                            <i class="ri-flashlight-line"></i> White
+                        </button>
+                        <button class="preset-btn" data-preset="pink">
+                            <i class="ri-contrast-line"></i> Pink
+                        </button>
+                        <button class="preset-btn" data-preset="brown">
+                            <i class="ri-cloud-line"></i> Brown
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Status -->
+            <div class="status-badge ready" id="statusBadge">
+                <span class="status-icon">●</span>
+                <span class="status-text">Ready</span>
+            </div>
+
+            <!-- Play Button -->
+            <div class="action-buttons">
+                <button id="playButton" class="primary-btn">
+                    <i class="ri-play-fill"></i>
+                    <span>Play</span>
+                </button>
+            </div>
+
+            <!-- Waveform Visualization -->
+            <div class="waveform-container">
+                <div class="waveform-header">
+                    <span class="waveform-title">Waveform</span>
+                </div>
+                <canvas id="waveformCanvas"></canvas>
+            </div>
+        </div>
+
+        <!-- Mixer Controls -->
+        <div class="controls" id="mixer">
+            <div class="control-group noise-mixer">
+                <h3>Noise Mixer</h3>
+
+                <div class="noise-channel">
+                    <label for="whiteLevel">
+                        <span class="noise-label">White Noise</span>
+                        <span class="noise-desc">All frequencies, equal energy</span>
+                    </label>
+                    <input type="range" id="whiteLevel" min="0" max="100" value="0">
+                    <span class="value" id="whiteValue">0%</span>
+                </div>
+
+                <div class="noise-channel">
+                    <label for="pinkLevel">
+                        <span class="noise-label">Pink Noise</span>
+                        <span class="noise-desc">Balanced, natural sounding</span>
+                    </label>
+                    <input type="range" id="pinkLevel" min="0" max="100" value="50">
+                    <span class="value" id="pinkValue">50%</span>
+                </div>
+
+                <div class="noise-channel">
+                    <label for="brownLevel">
+                        <span class="noise-label">Brown Noise</span>
+                        <span class="noise-desc">Deep, rumbling bass</span>
+                    </label>
+                    <input type="range" id="brownLevel" min="0" max="100" value="0">
+                    <span class="value" id="brownValue">0%</span>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <h3>Volume & Timer</h3>
+
+                <label for="volume">Master Volume</label>
+                <input type="range" id="volume" min="0" max="100" value="50">
+                <span class="value" id="volumeValue">50%</span>
+
+                <label>Sleep Timer</label>
+                <div class="timer-buttons">
+                    <button class="timer-btn" data-time="0">Off</button>
+                    <button class="timer-btn" data-time="15">15m</button>
+                    <button class="timer-btn" data-time="30">30m</button>
+                    <button class="timer-btn" data-time="60">1h</button>
+                    <button class="timer-btn" data-time="120">2h</button>
+                </div>
+                <div class="timer-display" id="timerDisplay">
+                    <span class="timer-label">Time remaining:</span>
+                    <span class="timer-value" id="timerValue">--:--</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Educational Content -->
+        <section class="content-section" id="about-noise">
+            <article class="content-article">
+                <h2>The Science of Noise</h2>
+                <p class="intro-text">Not all noise is created equal. Different "colors" of noise have distinct frequency distributions that affect how we perceive them and how they influence our brain. Understanding these differences can help you choose the right noise for your needs.</p>
+
+                <h3>What is Sound Color?</h3>
+                <p>Just as light has colors determined by wavelength, sound has "colors" determined by how energy is distributed across frequencies. White light contains all visible wavelengths equally; white noise contains all audible frequencies at equal power. Other noise colors have different frequency weightings that change their character and usefulness.</p>
+
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4><i class="ri-flashlight-line"></i> White Noise</h4>
+                        <p>Contains all frequencies at equal intensity, creating a consistent "hiss" sound. White noise is excellent for masking sudden sounds like traffic or conversation because it covers the entire audible spectrum. It's commonly used in offices, for baby sleep, and in audio testing.</p>
+                        <p class="noise-specs"><strong>Character:</strong> Bright, hissy, energetic<br><strong>Best for:</strong> Sound masking, concentration, audio calibration</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h4><i class="ri-contrast-line"></i> Pink Noise</h4>
+                        <p>Has equal energy per octave, meaning lower frequencies are louder than higher ones (3dB/octave rolloff). This creates a more balanced, natural sound that many find more pleasant than white noise. Pink noise mimics the frequency distribution of many natural sounds like rainfall and rustling leaves.</p>
+                        <p class="noise-specs"><strong>Character:</strong> Balanced, natural, soothing<br><strong>Best for:</strong> Sleep, relaxation, studying, tinnitus relief</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h4><i class="ri-cloud-line"></i> Brown Noise</h4>
+                        <p>Also called Brownian or red noise, it has even more bass emphasis (6dB/octave rolloff). Named after Robert Brown who described Brownian motion, not the color. It produces a deep, rumbling sound like a waterfall, distant thunder, or strong wind. Many people find it the most relaxing noise color.</p>
+                        <p class="noise-specs"><strong>Character:</strong> Deep, rumbly, powerful<br><strong>Best for:</strong> Deep relaxation, meditation, blocking low-frequency sounds</p>
+                    </div>
+                </div>
+
+                <h3>Benefits of Noise for Sleep and Focus</h3>
+                <p>Research suggests that consistent background noise can improve sleep quality and cognitive performance in several ways:</p>
+
+                <ul class="feature-list">
+                    <li><strong>Sound Masking:</strong> Continuous noise covers up sudden sounds (doors, traffic, conversations) that might otherwise disturb sleep or concentration</li>
+                    <li><strong>Reduced Cognitive Load:</strong> A consistent auditory environment reduces the brain's need to process changing sounds, freeing up mental resources</li>
+                    <li><strong>Sleep Onset:</strong> Studies show pink noise can help people fall asleep faster and experience deeper slow-wave sleep</li>
+                    <li><strong>Tinnitus Relief:</strong> Background noise can help mask the phantom sounds of tinnitus, providing relief for sufferers</li>
+                    <li><strong>Memory Consolidation:</strong> Some research indicates pink noise during sleep may enhance memory consolidation</li>
+                    <li><strong>ADHD and Focus:</strong> Some individuals with ADHD report improved focus with background noise, though results vary by person</li>
+                </ul>
+
+                <h3>Choosing the Right Noise</h3>
+                <p>The best noise color depends on your personal preference and intended use:</p>
+
+                <ul class="feature-list">
+                    <li><strong>For Sleep:</strong> Most people prefer pink or brown noise. Pink noise is gentler, while brown noise provides a deeper, more enveloping sound</li>
+                    <li><strong>For Focus/Studying:</strong> Try pink noise first. Some prefer white noise for more effective sound masking in noisy environments</li>
+                    <li><strong>For Relaxation:</strong> Brown noise is often the most relaxing due to its deep, soothing quality</li>
+                    <li><strong>For Tinnitus:</strong> Start with pink noise, then experiment. The goal is to match the frequency range of your tinnitus</li>
+                    <li><strong>For Babies:</strong> White noise is traditional, but pink noise may be safer for developing ears due to lower high-frequency content</li>
+                </ul>
+
+                <h3>Safe Listening Practices</h3>
+                <p>While noise generators are generally safe, follow these guidelines:</p>
+                <ul class="feature-list">
+                    <li><strong>Keep Volume Moderate:</strong> Listen at the lowest effective volume. If you need to raise your voice to be heard over the noise, it's too loud</li>
+                    <li><strong>Use Quality Speakers/Headphones:</strong> Cheap speakers can distort at certain frequencies, reducing effectiveness and potentially causing fatigue</li>
+                    <li><strong>Take Breaks:</strong> If using for extended periods, give your ears periodic rest</li>
+                    <li><strong>Distance Matters:</strong> Place speakers at a reasonable distance rather than right next to your head</li>
+                </ul>
+            </article>
+        </section>
+
+        <footer class="site-footer">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="footer-logo">Noise Generator</span>
+                    <p>Free online white, pink, and brown noise generator. Perfect for sleep, focus, relaxation, and tinnitus masking.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="#generator">Generator</a>
+                    <a href="#mixer">Mixer</a>
+                    <a href="#about-noise">The Science</a>
+                </div>
+                <div class="footer-related">
+                    <h4>Related Tools</h4>
+                    <a href="https://sirengenerator.com" target="_blank">Siren Generator</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Part of the Audio Tools Network. For educational and personal use.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/noise.js') }}"></script>
+</body>
+</html>
