@@ -22,7 +22,7 @@ def sitemap():
     sitemap_xml = f'''<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://noisegenerator.com/</loc>
+        <loc>https://focushum.com/</loc>
         <lastmod>{today}</lastmod>
         <priority>1.0</priority>
         <changefreq>weekly</changefreq>
@@ -37,7 +37,7 @@ def robots():
     """Serve robots.txt for SEO"""
     robots_txt = '''User-agent: *
 Allow: /
-Sitemap: https://noisegenerator.com/sitemap.xml
+Sitemap: https://focushum.com/sitemap.xml
 
 # Crawl delay for politeness
 Crawl-delay: 1'''

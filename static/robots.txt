@@ -1,0 +1,6 @@
+# robots.txt for focushum.com
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://focushum.com/sitemap.xml
