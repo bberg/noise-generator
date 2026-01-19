@@ -24,6 +24,14 @@ def traditions():
 def faq():
     return render_template('faq.html', active_page='faq')
 
+@app.route('/for-sleep')
+def for_sleep():
+    return render_template('for-sleep.html', active_page='for-sleep')
+
+@app.route('/for-focus')
+def for_focus():
+    return render_template('for-focus.html', active_page='for-focus')
+
 @app.route('/favicon.ico')
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),
@@ -63,6 +71,18 @@ def sitemap():
     </url>
     <url>
         <loc>https://focushum.com/faq</loc>
+        <lastmod>{today}</lastmod>
+        <priority>0.9</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://focushum.com/for-sleep</loc>
+        <lastmod>{today}</lastmod>
+        <priority>0.9</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://focushum.com/for-focus</loc>
         <lastmod>{today}</lastmod>
         <priority>0.9</priority>
         <changefreq>monthly</changefreq>
