@@ -1,0 +1,377 @@
+{% extends "base.html" %}
+
+{% block title %}Noise FAQ - Common Questions About White, Pink & Brown Noise | Focus Hum{% endblock %}
+
+{% block description %}Answers to frequently asked questions about ambient noise: white, pink, and brown noise differences, safe listening levels, best uses, and technical details.{% endblock %}
+
+{% block meta_extra %}
+<meta property="og:title" content="Noise FAQ - Common Questions About White, Pink & Brown Noise">
+<meta property="og:description" content="Expert answers about noise colors, safe listening practices, sleep applications, focus benefits, and how noise generators work.">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://focushum.com/faq">
+
+<!-- FAQ Schema Markup -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What's the difference between white, pink, and brown noise?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "White noise contains all frequencies at equal intensity, creating a consistent 'hiss' sound. Pink noise has equal energy per octave, meaning lower frequencies are louder, producing a more balanced, natural sound. Brown noise has even more bass emphasis, creating a deep, rumbling sound like a waterfall. Each has different applications based on personal preference and intended use."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is noise safe for babies and infants?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Noise can help babies sleep, but safety guidelines must be followed. The American Academy of Pediatrics recommends keeping sound levels below 50 dB in infant sleep environments. Place the noise source at least 7 feet from the crib, use the lowest effective volume, and avoid overnight use at high volumes. Many commercial sound machines can exceed safe levels at maximum volume."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can noise help with tinnitus?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, sound therapy is a recognized treatment approach for tinnitus. Noise can provide masking (covering the tinnitus sound) and promote habituation (helping the brain learn to ignore tinnitus over time). Pink noise is often recommended. Use at the 'mixing point' - just loud enough to partially mask the tinnitus, not completely cover it. Consult an audiologist for personalized guidance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does noise help with ADHD?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Research suggests that white and pink noise can improve cognitive performance in some individuals with ADHD. The theory is that external stimulation helps bring brain arousal to optimal levels. A 2024 meta-analysis found a small but statistically significant benefit. However, individual responses vary - some people with ADHD benefit greatly, while others may not notice improvement."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which noise color is best for sleep?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most people find pink or brown noise most pleasant for sleep. Pink noise has a balanced, natural quality that many find soothing. Brown noise's deep bass creates an enveloping, calming sensation. Research suggests pink noise may enhance slow-wave (deep) sleep. White noise is also effective but some find it too 'bright' for sleeping. Personal preference is key - experiment to find what works for you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use noise for meditation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, ambient noise can be an excellent meditation support. It provides a consistent auditory focus that helps anchor attention, masks distracting environmental sounds, and creates acoustic consistency for practice. Some find that noise's neutral, non-conceptual quality makes it easier to maintain attention than music or guided meditations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the noise generator work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The generator uses the Web Audio API to synthesize noise in real-time in your browser. White noise is created using random number generation. Pink noise uses the Paul Kellet algorithm (an IIR filter bank) to shape white noise. Brown noise is created by integrating white noise (a random walk process). Different colors have different spectral slopes: white is 0 dB/octave, pink is -3 dB/octave, and brown is -6 dB/octave."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What volume should I use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use the lowest volume that achieves your goal. For sound masking, the noise should be just loud enough to blend with or slightly exceed the sounds you want to mask. For sleep, aim for 40-50 dB - roughly the level of a quiet conversation. For focus, moderate levels (50-70 dB) are typically effective. If you need to raise your voice to be heard over the noise, it's too loud."
+      }
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block tagline %}Answers to common questions about ambient noise{% endblock %}
+
+{% block content %}
+<div class="faq-container">
+    <div class="faq-hero">
+        <h1>Frequently Asked Questions</h1>
+        <p>Expert answers about noise colors, safe listening practices, applications, and technical details.</p>
+    </div>
+
+    <!-- General Noise Questions -->
+    <section class="faq-section">
+        <h2>General Noise Questions</h2>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                <span>What's the difference between white, pink, and brown noise?</span>
+                <i class="ri-arrow-down-s-line"></i>
+            </div>
+            <div class="faq-answer">
+                <p><strong>White noise</strong> contains all frequencies at equal intensity, creating a consistent "hiss" sound. It's like television static or a fan on high speed.</p>
+                <p><strong>Pink noise</strong> has equal energy per octave, meaning lower frequencies are louder. This creates a more balanced, natural sound - similar to rainfall or rustling leaves. Most people find pink noise more pleasant than white noise.</p>
+                <p><strong>Brown noise</strong> (also called Brownian or red noise) has even more bass emphasis, creating a deep, rumbling sound like a waterfall, distant thunder, or strong wind. Many people find it the most relaxing noise color.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                <span>What about blue and violet noise?</span>
+                <i class="ri-arrow-down-s-line"></i>
+            </div>
+            <div class="faq-answer">
+                <p><strong>Blue noise</strong> is the opposite of pink noise - higher frequencies are louder. It has a crisp, bright quality that some find energizing.</p>
+                <p><strong>Violet noise</strong> (purple noise) is the opposite of brown noise - even more high-frequency emphasis. It sounds sharp and airy.</p>
+                <p>These are less commonly used than white, pink, and brown, but can be helpful for masking high-pitched sounds (like tinnitus) or for audio production applications.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                <span>Why is it called "brown" noise?</span>
+                <i class="ri-arrow-down-s-line"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Brown noise is named after <strong>Robert Brown</strong>, the botanist who first described Brownian motion in 1827. The sound is generated using the same mathematical process that describes the random movement of particles in fluid.</p>
+                <p>It's also sometimes called "red noise" by analogy to red light having longer wavelengths than other visible colors. The name has nothing to do with the color brown visually.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                <span>Which noise color is best?</span>
+                <i class="ri-arrow-down-s-line"></i>
+            </div>
+            <div class="faq-answer">
+                <p>There's no universally "best" noise - it depends on your goals and personal preference:</p>
+                <p><strong>For sleep:</strong> Most people prefer pink or brown noise. Pink is balanced and natural; brown is deep and enveloping.</p>
+                <p><strong>For focus:</strong> Try pink noise first. Some prefer white noise for maximum sound masking in noisy environments.</p>
+                <p><strong>For tinnitus:</strong> Start with pink noise, then experiment. The goal is to match the frequency range of your tinnitus.</p>
+                <p><strong>For creativity:</strong> Research suggests moderate noise levels (~70 dB) of any type can enhance creative thinking.</p>
+                <p>The best approach is to experiment and find what works for you.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sleep Questions -->
+    <section class="faq-section">
+        <h2>Sleep & Relaxation</h2>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                <span>Is noise safe for babies and infants?</span>
+                <i class="ri-arrow-down-s-line"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Noise can help babies sleep, but <strong>safety guidelines must be followed</strong>:</p>
+                <p>- Keep sound levels below 50 dB (the American Academy of Pediatrics recommendation)</p>
+                <p>- Place the noise source at least 7 feet (2 meters) from the crib</p>
+                <p>- Use the lowest volume that's effective</p>
+                <p>- Test your device's volume before use - many can exceed 85 dB at maximum</p>
+                <p>- Consider using noise primarily for naps rather than all-night use</p>
+                <p>Consult your pediatrician for personalized guidance, especially if your baby has any hearing concerns.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                <span>Will I become dependent on noise for sleep?</span>
+                <i class="ri-arrow-down-s-line"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Some people do develop a preference for sleeping with noise, but this isn't the same as physical dependence. If you want to stop using noise, you can gradually reduce the volume over several weeks.</p>
+                <p>Many people simply sleep better with consistent background sound, and there's nothing inherently problematic about this. If you travel frequently, you can use a phone app to maintain your sleep environment.</p>
+                <p>For children, most experts recommend gradually weaning off noise between 12-24 months, though some children (like some adults) simply sleep better with ambient sound.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                <span>Can noise improve sleep quality?</span>
+                <i class="ri-arrow-down-s-line"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Research suggests that noise can improve sleep in several ways:</p>
+                <p><strong>Masking disruptions:</strong> Consistent noise reduces the brain's response to sudden sounds, decreasing awakenings.</p>
+                <p><strong>Enhancing deep sleep:</strong> Some studies show pink noise can increase slow-wave activity and sleep spindles.</p>
+                <p><strong>Reducing sleep latency:</strong> The consistent sound can help anxious minds settle, reducing time to fall asleep.</p>
+                <p>However, effects vary by individual. Some people sleep better in silence. If you have a sleep disorder, consult a healthcare provider.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Focus & Cognition Questions -->
+    <section class="faq-section">
+        <h2>Focus & Cognition</h2>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                <span>Does noise help with ADHD?</span>
+                <i class="ri-arrow-down-s-line"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Research suggests that white and pink noise can improve cognitive performance in some individuals with ADHD. A 2024 meta-analysis found a small but statistically significant benefit.</p>
+                <p>The theory is that people with ADHD may have lower baseline neural arousal, and external stimulation (like noise) helps bring arousal to optimal levels. Interestingly, the same noise may slightly decrease performance in neurotypical individuals.</p>
+                <p>Individual responses vary considerably. Some people with ADHD find noise tremendously helpful; others notice no benefit. It's worth experimenting to see if it works for you.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                <span>Can noise help with studying?</span>
+                <i class="ri-arrow-down-s-line"></i>
+            </div>
+            <div class="faq-answer">
+                <p>For many people, yes. Noise can help studying by:</p>
+                <p><strong>Masking distractions:</strong> Conversations, traffic, and other sounds become less attention-grabbing.</p>
+                <p><strong>Creating consistency:</strong> The same noise in the same environment creates study-associated cues.</p>
+                <p><strong>Reducing internal distraction:</strong> The external sound may reduce mind-wandering for some people.</p>
+                <p>However, noise isn't helpful for everyone. If you're easily distracted by sound in general, or if you're doing tasks that require listening (like language learning), silence or very low volumes may be better.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                <span>Does noise help with creativity?</span>
+                <i class="ri-arrow-down-s-line"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Research by Mehta et al. (2012) found that moderate ambient noise (~70 dB) enhanced creative cognition compared to both silence and loud noise.</p>
+                <p>The theory is that moderate noise creates "processing disfluency" - a slight difficulty in processing that promotes broader, more abstract thinking. This is good for brainstorming and ideation.</p>
+                <p>However, for detail-oriented work (editing, calculation, debugging), lower volumes or silence may be preferable. Match the sound level to your task.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Health Questions -->
+    <section class="faq-section">
+        <h2>Health & Safety</h2>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                <span>Can noise help with tinnitus?</span>
+                <i class="ri-arrow-down-s-line"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Yes, sound therapy is a recognized treatment approach for tinnitus. It works through two mechanisms:</p>
+                <p><strong>Masking:</strong> External noise covers the tinnitus sound, providing immediate relief.</p>
+                <p><strong>Habituation:</strong> Over time, the brain learns to filter out both the noise and the tinnitus, reducing perceived loudness.</p>
+                <p>For habituation, use noise at the "mixing point" - just loud enough to partially mask the tinnitus, not completely cover it. Consistency is key; use daily for extended periods.</p>
+                <p>Consult an audiologist for personalized guidance, especially if your tinnitus is recent or changing.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                <span>Can noise damage hearing?</span>
+                <i class="ri-arrow-down-s-line"></i>
+            </div>
+            <div class="faq-answer">
+                <p>At moderate volumes, noise is safe for hearing. However, high volumes over extended periods can cause damage.</p>
+                <p><strong>Safe listening guidelines:</strong></p>
+                <p>- Below 70 dB: Safe for extended listening</p>
+                <p>- 70-85 dB: Limit to a few hours</p>
+                <p>- Above 85 dB: Can cause hearing damage; avoid extended exposure</p>
+                <p>A good rule: if you need to raise your voice to be heard over the noise, it's too loud. If using headphones, follow the 60/60 rule: no more than 60% volume for no more than 60 minutes at a time.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                <span>What volume should I use?</span>
+                <i class="ri-arrow-down-s-line"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Use the <strong>lowest volume that achieves your goal</strong>:</p>
+                <p><strong>For sleep:</strong> 40-50 dB (roughly the level of a quiet conversation or gentle rain)</p>
+                <p><strong>For focus:</strong> 50-70 dB (enough to mask distractions without being overwhelming)</p>
+                <p><strong>For sound masking:</strong> Just loud enough to blend with the sounds you want to mask</p>
+                <p><strong>For tinnitus:</strong> At or just below the "mixing point" where tinnitus is partially masked</p>
+                <p>If you don't have a decibel meter, err on the side of quieter. You can always turn it up if needed.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Questions -->
+    <section class="faq-section">
+        <h2>Technical Questions</h2>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                <span>How does the noise generator work?</span>
+                <i class="ri-arrow-down-s-line"></i>
+            </div>
+            <div class="faq-answer">
+                <p>The generator uses the <strong>Web Audio API</strong> to synthesize noise in real-time in your browser. No sounds are pre-recorded - everything is generated mathematically.</p>
+                <p><strong>White noise:</strong> Random number generation - each sample is an independent random value.</p>
+                <p><strong>Pink noise:</strong> The Paul Kellet algorithm - a bank of IIR filters that shapes white noise to achieve the 1/f spectrum.</p>
+                <p><strong>Brown noise:</strong> Integrated white noise - each sample is the previous sample plus a small random change (a random walk).</p>
+                <p>The different colors have different spectral slopes: white is flat (0 dB/octave), pink falls at -3 dB/octave, and brown at -6 dB/octave.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                <span>Why doesn't the sound work on my phone?</span>
+                <i class="ri-arrow-down-s-line"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Mobile browsers require user interaction before playing audio (to prevent auto-playing ads). Make sure you're tapping the "Play" button rather than expecting automatic playback.</p>
+                <p>Also check that:</p>
+                <p>- Your phone isn't on silent/vibrate mode</p>
+                <p>- Volume is turned up</p>
+                <p>- Browser permissions allow audio playback</p>
+                <p>- You're using a recent browser version (Chrome, Safari, Firefox)</p>
+                <p>If audio still doesn't work, try refreshing the page or using a different browser.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                <span>Can I use noise for meditation?</span>
+                <i class="ri-arrow-down-s-line"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Yes, ambient noise can be an excellent meditation support. It provides:</p>
+                <p><strong>Consistent focus:</strong> Unlike breath or body sensations, noise doesn't change - making it easy to maintain attention.</p>
+                <p><strong>Masking:</strong> Environmental sounds become less distracting.</p>
+                <p><strong>Neutral quality:</strong> No melody, rhythm, or narrative to follow - just pure sound.</p>
+                <p>Some meditation traditions (like Nada Yoga) specifically use sound as a meditation object. Even without traditional training, simply attending to noise with full awareness is a valid contemplative practice.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                <span>Is this noise truly random?</span>
+                <i class="ri-arrow-down-s-line"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Technically, the noise is <strong>pseudo-random</strong> - generated by mathematical algorithms that produce sequences that appear random but are actually deterministic.</p>
+                <p>For audio purposes, this is perfectly fine. JavaScript's Math.random() produces sufficiently random numbers that the resulting noise is indistinguishable from "true" random noise. Cryptographic-quality randomness isn't needed for sound generation.</p>
+                <p>The key characteristic is that there are no audible patterns or repetitions - each moment sounds unique, which is what matters for noise applications.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cross-links -->
+    <div class="cross-links">
+        <a href="/science" class="cross-link-card">
+            <i class="ri-flask-line"></i>
+            <div class="link-content">
+                <h4>Science & Research</h4>
+                <p>Neuroscience of ambient noise</p>
+            </div>
+        </a>
+        <a href="/applications" class="cross-link-card">
+            <i class="ri-tools-line"></i>
+            <div class="link-content">
+                <h4>Practical Applications</h4>
+                <p>Real-world uses for noise</p>
+            </div>
+        </a>
+        <a href="/traditions" class="cross-link-card">
+            <i class="ri-ancient-gate-line"></i>
+            <div class="link-content">
+                <h4>Contemplative Traditions</h4>
+                <p>Spiritual dimensions of sound</p>
+            </div>
+        </a>
+    </div>
+</div>
+{% endblock %}
