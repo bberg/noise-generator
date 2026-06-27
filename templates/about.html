@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}About Focus Hum - Free White, Pink & Brown Noise Generator{% endblock %}
+
+{% block description %}Focus Hum is a free, browser-based noise generator built for deep focus and easier sleep. Learn why we made it, who it's for, and how it works.{% endblock %}
+
+{% block meta_extra %}
+<meta property="og:title" content="About Focus Hum">
+<meta property="og:description" content="Why Focus Hum exists: a free, no-sign-up noise generator for focus and sleep, built around a five-color mixer that runs entirely in your browser.">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://focushum.com/about">
+{% endblock %}
+
+{% block tagline %}Why we built a noise generator for focus and sleep{% endblock %}
+
+{% block content %}
+<div class="research-hero">
+    <h1>About Focus Hum</h1>
+    <p class="subtitle">A free, browser-based noise generator built for the moments when you need to settle in and concentrate, or finally drift off.</p>
+</div>
+
+<div class="research-content">
+    <section class="research-section">
+        <h2>Why this exists</h2>
+        <p>Focus Hum started with a simple frustration: most "focus sound" tools either bury the audio behind a paywall, push you toward an app download, or loop the same short clip until your ear catches the seam. We wanted something you could open in a single browser tab, press play, and forget about, no account, no install, no nagging. So we built a generator that synthesizes noise in real time using the Web Audio API. Nothing is pre-recorded, which means it never repeats and never has to load.</p>
+    </section>
+
+    <section class="research-section">
+        <h2>What it does</h2>
+        <p>At its core, Focus Hum plays the classic noise "colors": white noise for masking sharp, sudden sounds, pink noise for a softer and more natural wash, and brown noise for that deep, rumbling low end a lot of people find the most calming. We also added blue and violet noise for anyone masking high-pitched ringing or testing speakers. The part we're proudest of is the five-color mixer: instead of being stuck with one preset, you can blend the colors to taste, dial in volume, shape the low and high cut, and set a sleep timer so it fades out on its own. Found a blend you love? Save it as a preset or share it as a link.</p>
+    </section>
+
+    <section class="research-section">
+        <h2>Who it's for</h2>
+        <p>If you do deep work in a noisy apartment, study next to a chatty roommate, or just think better with a steady backdrop, this is for you. It's equally at home as a sleep aid, a way to soften an open-plan office, or a calm-down sound for nap time. We write our guides honestly: noise helps a lot of people focus and sleep, but it isn't magic and it isn't medical advice, and we'd rather tell you that than oversell it.</p>
+    </section>
+
+    <section class="research-section">
+        <h2>Part of the Audio Tools Network</h2>
+        <p>Focus Hum is one of several free audio tools we build. If you're after something more melodic at bedtime, try the ambient drones at <a href="https://omtones.com" target="_blank" rel="noopener">OmTones</a>; if you want to experiment with focus audio of a different kind, <a href="https://binauralhq.com" target="_blank" rel="noopener">BinauralHQ</a> explores binaural beats. Everything we make follows the same rule: free to use, no sign-up, and it runs right in your browser.</p>
+    </section>
+</div>
+{% endblock %}
