@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Focus Hum - Ambient Noise Generator{% endblock %}</title>
-    <meta name="description" content="{% block description %}Focus Hum is a free ambient noise generator with white, pink, and brown noise. Boost concentration and enhance productivity.{% endblock %}">
+    <title>{% block title %}Free White, Pink & Brown Noise Generator | Focus Hum{% endblock %}</title>
+    <meta name="description" content="{% block description %}Play free white, pink, and brown noise to focus, sleep, or block distractions. Adjustable volume, a 5-color mixer, and one-tap presets, no download needed.{% endblock %}">
     {% block meta_extra %}{% endblock %}
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-R8DXENH12S"></script>
@@ -14,6 +14,10 @@
         gtag('js', new Date());
         gtag('config', 'G-R8DXENH12S');
     </script>
+    <!-- Performance: preconnect to external origins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
     <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -48,7 +52,7 @@
     <div class="container">
         <header class="page-header">
             <div class="header-content">
-                <h1><a href="/" style="color: inherit; text-decoration: none;">Focus Hum</a></h1>
+                <p class="site-title"><a href="/" style="color: inherit; text-decoration: none;">Focus Hum</a></p>
                 <p class="tagline">{% block tagline %}Ambient noise for deep focus, concentration, and productivity{% endblock %}</p>
             </div>
         </header>
@@ -58,6 +62,17 @@
             <a href="/#mixer" class="nav-link"><i class="ri-equalizer-line"></i> Mixer</a>
             <a href="/#presets" class="nav-link"><i class="ri-bookmark-line"></i> Presets</a>
             <a href="/#about-noise" class="nav-link"><i class="ri-question-line"></i> About</a>
+            <div class="nav-dropdown">
+                <a href="#" class="nav-link dropdown-trigger {% if active_page in ['for-sleep', 'for-focus', 'for-studying', 'for-tinnitus', 'for-babies', 'for-office'] %}active{% endif %}"><i class="ri-apps-line"></i> Use Cases <i class="ri-arrow-down-s-line dropdown-arrow"></i></a>
+                <div class="dropdown-menu">
+                    <a href="/for-sleep" {% if active_page == 'for-sleep' %}class="active"{% endif %}><i class="ri-moon-line"></i> Noise for Sleep</a>
+                    <a href="/for-focus" {% if active_page == 'for-focus' %}class="active"{% endif %}><i class="ri-focus-3-line"></i> Noise for Focus</a>
+                    <a href="/for-studying" {% if active_page == 'for-studying' %}class="active"{% endif %}><i class="ri-book-open-line"></i> Noise for Studying</a>
+                    <a href="/for-tinnitus" {% if active_page == 'for-tinnitus' %}class="active"{% endif %}><i class="ri-ear-line"></i> Noise for Tinnitus</a>
+                    <a href="/for-babies" {% if active_page == 'for-babies' %}class="active"{% endif %}><i class="ri-bear-smile-line"></i> Noise for Babies</a>
+                    <a href="/for-office" {% if active_page == 'for-office' %}class="active"{% endif %}><i class="ri-building-line"></i> Noise for Office</a>
+                </div>
+            </div>
             <div class="nav-dropdown">
                 <a href="#" class="nav-link dropdown-trigger {% if active_page in ['science', 'applications', 'traditions', 'faq'] %}active{% endif %}"><i class="ri-information-line"></i> Info <i class="ri-arrow-down-s-line dropdown-arrow"></i></a>
                 <div class="dropdown-menu">
@@ -92,6 +107,15 @@
                     <p>Free ambient noise generator for deep focus and concentration. White, pink, and brown noise to boost productivity.</p>
                 </div>
                 <div class="footer-links">
+                    <h4>Use Cases</h4>
+                    <a href="/for-sleep">Noise for Sleep</a>
+                    <a href="/for-focus">Noise for Focus</a>
+                    <a href="/for-studying">Noise for Studying</a>
+                    <a href="/for-tinnitus">Noise for Tinnitus</a>
+                    <a href="/for-babies">Noise for Babies</a>
+                    <a href="/for-office">Noise for Office</a>
+                </div>
+                <div class="footer-links">
                     <h4>Learn More</h4>
                     <a href="/science">Science & Research</a>
                     <a href="/applications">Practical Applications</a>
@@ -100,11 +124,12 @@
                 </div>
                 <div class="footer-related">
                     <h4>Audio Tools Network</h4>
-                    <a href="https://tonesynth.com" target="_blank">Tone Generator</a>
-                    <a href="https://binauralhq.com" target="_blank">Binaural Beats</a>
-                    <a href="https://omtones.com" target="_blank">Drone Generator</a>
-                    <a href="https://testtones.com" target="_blank">Frequency Generator</a>
-                    <a href="https://metronomely.com" target="_blank">Metronome</a>
+                    <a href="https://sirengenerator.com" target="_blank" rel="noopener">Siren Generator</a>
+                    <a href="https://tonesynth.com" target="_blank" rel="noopener">ToneSynth</a>
+                    <a href="https://binauralhq.com" target="_blank" rel="noopener">BinauralHQ</a>
+                    <a href="https://omtones.com" target="_blank" rel="noopener">OmTones</a>
+                    <a href="https://testtones.com" target="_blank" rel="noopener">TestTones</a>
+                    <a href="https://metronomely.com" target="_blank" rel="noopener">Metronomely</a>
                 </div>
             </div>
             <div class="footer-bottom">

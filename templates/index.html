@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Focus Hum - Ambient Noise Generator for Deep Focus & Concentration</title>
-    <meta name="description" content="Focus Hum is a free ambient noise generator with white, pink, and brown noise. Boost concentration, improve focus, and enhance productivity with soothing background sounds.">
+    <title>Free White, Pink & Brown Noise Generator | Focus Hum</title>
+    <meta name="description" content="Play free white, pink, and brown noise to focus, sleep, or block distractions. Adjustable volume, a 5-color mixer, and one-tap presets, no download needed.">
     <meta name="keywords" content="focus hum, ambient noise, concentration sounds, focus music, white noise, pink noise, brown noise, productivity sounds, study noise, deep work">
 
     <!-- Canonical URL -->
@@ -13,8 +13,8 @@
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://focushum.com/">
-    <meta property="og:title" content="Focus Hum - Ambient Noise Generator for Deep Focus & Concentration">
-    <meta property="og:description" content="Focus Hum is a free ambient noise generator with white, pink, and brown noise. Boost concentration and enhance productivity with soothing background sounds.">
+    <meta property="og:title" content="Free White, Pink & Brown Noise Generator | Focus Hum">
+    <meta property="og:description" content="Play free white, pink, and brown noise to focus, sleep, or block distractions. Adjustable volume, a 5-color mixer, and one-tap presets, no download needed.">
     <meta property="og:image" content="https://focushum.com/static/images/og-image.png">
     <meta property="og:site_name" content="FocusHum">
 
@@ -43,6 +43,11 @@
     }
     </script>
 
+    <!-- Performance: preconnect to external origins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
     <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -61,8 +66,8 @@
     <div class="container">
         <header class="page-header">
             <div class="header-content">
-                <h1>Focus Hum</h1>
-                <p class="tagline">Ambient noise for deep focus, concentration, and productivity</p>
+                <h1>Focus Hum &mdash; White, Pink &amp; Brown Noise Generator</h1>
+                <p class="tagline">Press play and let steady noise cover the sounds pulling you away. Free, no sign-up, no download &mdash; pick a preset or mix your own.</p>
             </div>
             <div class="header-badges">
                 <span class="header-badge"><i class="ri-moon-line"></i> Sleep</span>
@@ -345,10 +350,10 @@
                 <p>The best noise color depends on your personal preference and intended use:</p>
 
                 <ul class="feature-list">
-                    <li><strong>For Sleep:</strong> Most people prefer pink or brown noise. Pink noise is gentler, while brown noise provides a deeper, more enveloping sound</li>
-                    <li><strong>For Focus/Studying:</strong> Try pink noise first. Some prefer white noise for more effective sound masking in noisy environments</li>
+                    <li><strong>For Sleep:</strong> Most people prefer pink or brown noise. Pink noise is gentler, while brown noise provides a deeper, more enveloping sound (<a href="/for-sleep">noise for sleep guide</a>). If you like a more musical, evolving backdrop at bedtime, try layering in ambient <a href="https://omtones.com" target="_blank" rel="noopener">drone tones</a> instead</li>
+                    <li><strong>For Focus/Studying:</strong> Try pink noise first. Some prefer white noise for more effective sound masking in noisy environments (<a href="/for-focus">focus guide</a>, <a href="/for-studying">studying guide</a>). For a different approach to deep work, some people pair noise with <a href="https://binauralhq.com" target="_blank" rel="noopener">binaural beats</a></li>
                     <li><strong>For Relaxation:</strong> Brown noise is often the most relaxing due to its deep, soothing quality</li>
-                    <li><strong>For Tinnitus:</strong> Start with pink noise, then experiment. The goal is to match the frequency range of your tinnitus</li>
+                    <li><strong>For Tinnitus:</strong> Start with pink noise, then experiment. The goal is to match the frequency range of your tinnitus (<a href="/for-tinnitus">noise for tinnitus guide</a>)</li>
                     <li><strong>For Babies:</strong> White noise is traditional, but pink noise may be safer for developing ears due to lower high-frequency content</li>
                     <li><strong>For ADHD:</strong> Research supports white or pink noise for improved attention. Individual response varies - experiment to find what works for you</li>
                 </ul>
@@ -522,11 +527,55 @@ for each sample:
             </article>
         </section>
 
+        <section class="content-section" id="use-cases">
+            <div class="info-card" style="background: none; border: none; padding: 0;">
+                <h2>Find noise for what you're doing</h2>
+                <p>Pick a guide tailored to your situation—each one covers the best noise color, volume, and setup for that use.</p>
+            </div>
+            <div class="cross-links">
+                <a href="/for-sleep" class="cross-link-card">
+                    <i class="ri-moon-line"></i>
+                    <div class="link-content">
+                        <h4>Noise for Sleep</h4>
+                        <p>Fall asleep faster, stay asleep</p>
+                    </div>
+                </a>
+                <a href="/for-focus" class="cross-link-card">
+                    <i class="ri-focus-3-line"></i>
+                    <div class="link-content">
+                        <h4>Noise for Focus</h4>
+                        <p>Deep work and concentration</p>
+                    </div>
+                </a>
+                <a href="/for-studying" class="cross-link-card">
+                    <i class="ri-book-open-line"></i>
+                    <div class="link-content">
+                        <h4>Noise for Studying</h4>
+                        <p>Mask distractions, study longer</p>
+                    </div>
+                </a>
+                <a href="/for-tinnitus" class="cross-link-card">
+                    <i class="ri-ear-line"></i>
+                    <div class="link-content">
+                        <h4>Noise for Tinnitus</h4>
+                        <p>Sound masking and relief</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
         <footer class="site-footer">
             <div class="footer-content">
                 <div class="footer-brand">
                     <span class="footer-logo">Focus Hum</span>
                     <p>Free ambient noise generator for deep focus and concentration. White, pink, and brown noise to boost productivity.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Use Cases</h4>
+                    <a href="/for-sleep">Noise for Sleep</a>
+                    <a href="/for-focus">Noise for Focus</a>
+                    <a href="/for-studying">Noise for Studying</a>
+                    <a href="/for-tinnitus">Noise for Tinnitus</a>
                 </div>
                 <div class="footer-links">
                     <h4>Learn More</h4>
@@ -536,13 +585,13 @@ for each sample:
                     <a href="/faq">FAQ</a>
                 </div>
                 <div class="footer-related">
-                    <h4>Related Tools</h4>
-                    <a href="https://sirengenerator.com" target="_blank">Siren Generator</a>
-                    <a href="https://tonesynth.com" target="_blank">Tone Generator</a>
-                    <a href="https://binauralhq.com" target="_blank">Binaural Beats</a>
-                    <a href="https://omtones.com" target="_blank">Drone Generator</a>
-                    <a href="https://testtones.com" target="_blank">Frequency Generator</a>
-                    <a href="https://metronomely.com" target="_blank">Metronome</a>
+                    <h4>Audio Tools Network</h4>
+                    <a href="https://sirengenerator.com" target="_blank" rel="noopener">Siren Generator</a>
+                    <a href="https://tonesynth.com" target="_blank" rel="noopener">ToneSynth</a>
+                    <a href="https://binauralhq.com" target="_blank" rel="noopener">BinauralHQ</a>
+                    <a href="https://omtones.com" target="_blank" rel="noopener">OmTones</a>
+                    <a href="https://testtones.com" target="_blank" rel="noopener">TestTones</a>
+                    <a href="https://metronomely.com" target="_blank" rel="noopener">Metronomely</a>
                 </div>
             </div>
             <div class="footer-bottom">

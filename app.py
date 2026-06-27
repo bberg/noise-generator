@@ -33,6 +33,22 @@ def for_sleep():
 def for_focus():
     return render_template('for-focus.html', active_page='for-focus')
 
+@app.route('/for-studying')
+def for_studying():
+    return render_template('for-studying.html', active_page='for-studying')
+
+@app.route('/for-tinnitus')
+def for_tinnitus():
+    return render_template('for-tinnitus.html', active_page='for-tinnitus')
+
+@app.route('/for-babies')
+def for_babies():
+    return render_template('for-babies.html', active_page='for-babies')
+
+@app.route('/for-office')
+def for_office():
+    return render_template('for-office.html', active_page='for-office')
+
 @app.route('/favicon.ico')
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),
@@ -89,6 +105,30 @@ def sitemap():
     </url>
     <url>
         <loc>https://focushum.com/for-focus</loc>
+        <lastmod>{today}</lastmod>
+        <priority>0.9</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://focushum.com/for-studying</loc>
+        <lastmod>{today}</lastmod>
+        <priority>0.9</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://focushum.com/for-tinnitus</loc>
+        <lastmod>{today}</lastmod>
+        <priority>0.9</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://focushum.com/for-babies</loc>
+        <lastmod>{today}</lastmod>
+        <priority>0.9</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://focushum.com/for-office</loc>
         <lastmod>{today}</lastmod>
         <priority>0.9</priority>
         <changefreq>monthly</changefreq>

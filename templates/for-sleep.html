@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 
-{% block title %}White Noise for Sleep - Best Sounds for Deep, Restful Sleep | Focus Hum{% endblock %}
+{% block title %}White Noise for Sleep - Deeper, Restful Nights | Focus Hum{% endblock %}
 
-{% block description %}Discover the best noise colors for sleep. White, pink, and brown noise help you fall asleep faster, stay asleep longer, and wake up refreshed. Free online sleep sounds.{% endblock %}
+{% block description %}Discover the best noise colors for sleep. White, pink, and brown noise help you fall asleep faster, stay asleep longer, and wake up refreshed.{% endblock %}
 
 {% block meta_extra %}
 <meta property="og:title" content="White Noise for Sleep - Best Sounds for Deep, Restful Sleep">
@@ -20,6 +20,47 @@
   "publisher": {"@type": "Organization", "name": "Focus Hum"}
 }
 </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Should I run noise all night or set a timer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Either works—it comes down to preference. Running it all night keeps masking environmental sounds through the lighter sleep stages near morning, when you're easiest to wake. A timer suits people who only need help drifting off and don't want sound later. If outside noise tends to wake you in the small hours, try leaving it on all night."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is white noise safe for babies?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Used sensibly, yes. The American Academy of Pediatrics suggests keeping the volume below about 50 decibels and placing the machine at least 7 feet from the crib rather than right beside it. Keep it quiet and across the room, and avoid leaving loud sound running for hours at a time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which noise color is best for sleep?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pink and brown noise are the usual favorites for sleep—they're softer and deeper, with less of the bright hiss that can make white noise tiring at night. White noise still has the strongest masking power for very loud rooms. Try each for a few nights; comfort matters more than any rule."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can noise help if my partner snores?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It can make snoring less disruptive by reducing the contrast between a snore and an otherwise silent room, so the sound is less likely to pull you out of sleep. Brown noise, with its deeper weight, tends to mask low-frequency snoring best. It won't erase loud snoring, but it often softens the edges."
+      }
+    }
+  ]
+}
+</script>
 {% endblock %}
 
 {% block tagline %}Sound masking for better, deeper sleep{% endblock %}
@@ -33,31 +74,32 @@
     </div>
 
     <section class="use-case-section">
-        <h2>Why Noise Helps You Sleep</h2>
+        <h2>Why noise helps you sleep</h2>
         <p>Your brain doesn't fully shut down during sleep—it continues monitoring for potential threats. Sudden sounds (a car door, a dog barking, a partner snoring) trigger alertness responses that fragment your sleep, even if you don't fully wake up.</p>
         <p><strong>Ambient noise creates a consistent sound blanket</strong> that masks these disruptions. Instead of silence punctuated by jarring sounds, your brain experiences steady, predictable audio that it learns to ignore.</p>
 
         <div class="benefit-grid">
             <div class="benefit-card">
-                <i class="ri-moon-line"></i>
-                <h3>Fall Asleep Faster</h3>
+                <i class="ri-moon-line" aria-hidden="true"></i>
+                <h3>Fall asleep faster</h3>
                 <p>Consistent sound helps quiet racing thoughts and creates a calming bedtime ritual.</p>
             </div>
             <div class="benefit-card">
-                <i class="ri-zzz-line"></i>
-                <h3>Stay Asleep Longer</h3>
+                <i class="ri-zzz-line" aria-hidden="true"></i>
+                <h3>Stay asleep longer</h3>
                 <p>Sound masking reduces awakenings from environmental noise disturbances.</p>
             </div>
             <div class="benefit-card">
-                <i class="ri-sun-line"></i>
-                <h3>Better Sleep Quality</h3>
+                <i class="ri-sun-line" aria-hidden="true"></i>
+                <h3>Better sleep quality</h3>
                 <p>Research suggests pink noise may enhance slow-wave (deep) sleep.</p>
             </div>
         </div>
     </section>
 
     <section class="use-case-section">
-        <h2>Best Noise Color for Sleep</h2>
+        <h2>Best noise color for sleep</h2>
+        <p>There's no single right answer—softer colors tend to suit sleep, but the most comfortable choice depends on your room and your ears. Here's how the three compare.</p>
 
         <div class="noise-comparison">
             <div class="noise-type">
@@ -78,10 +120,11 @@
                 <p><strong>Best for:</strong> Very noisy environments, people who already use fans for sleep</p>
             </div>
         </div>
+        <p>Still deciding? Open the <a href="/#mixer">mixer</a> and blend a little pink over brown—a warm, enveloping combination that many people find easy to fall asleep to.</p>
     </section>
 
     <section class="use-case-section">
-        <h2>Sleep Sound Tips</h2>
+        <h2>Sleep sound tips</h2>
         <ul class="tips-list">
             <li><strong>Start quiet:</strong> Use the lowest volume that masks disturbances. Louder isn't better.</li>
             <li><strong>Be consistent:</strong> Use the same sound nightly to build a sleep association.</li>
@@ -92,7 +135,7 @@
     </section>
 
     <section class="use-case-section">
-        <h2>Safe Listening for Sleep</h2>
+        <h2>Safe listening for sleep</h2>
         <p>For healthy sleep sound use:</p>
         <ul class="tips-list">
             <li>Keep volume at <strong>40-50 decibels</strong> (about the level of a quiet conversation)</li>
@@ -102,8 +145,59 @@
         </ul>
     </section>
 
+    <section class="use-case-section">
+        <h2>Common questions</h2>
+        <div class="faq-item">
+            <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                <span>Should I run noise all night or set a timer?</span>
+                <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Either works—it comes down to preference. Running it all night keeps masking environmental sounds through the lighter sleep stages near morning, when you're easiest to wake. A timer suits people who only need help drifting off and don't want sound later. If outside noise tends to wake you in the small hours, try leaving it on all night.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                <span>Is white noise safe for babies?</span>
+                <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Used sensibly, yes. The American Academy of Pediatrics suggests keeping the volume below about 50 decibels and placing the machine at least 7 feet from the crib rather than right beside it. Keep it quiet and across the room, and avoid leaving loud sound running for hours at a time.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                <span>Which noise color is best for sleep?</span>
+                <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Pink and brown noise are the usual favorites for sleep—they're softer and deeper, with less of the bright hiss that can make white noise tiring at night. White noise still has the strongest masking power for very loud rooms. Try each for a few nights; comfort matters more than any rule.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                <span>Can noise help if my partner snores?</span>
+                <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
+            </div>
+            <div class="faq-answer">
+                <p>It can make snoring less disruptive by reducing the contrast between a snore and an otherwise silent room, so the sound is less likely to pull you out of sleep. Brown noise, with its deeper weight, tends to mask low-frequency snoring best. It won't erase loud snoring, but it often softens the edges.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="use-case-section">
+        <h2>Recommended gear</h2>
+        <p>The generator works on any device, but a few well-chosen pieces of equipment can make sleep sounds more comfortable through the night:</p>
+        <ul class="tips-list">
+            <li><a href="https://amazon.com/dp/B0CKVM5KR8?tag=audiotools20-20" target="_blank" rel="noopener">Bose Sleepbuds III</a> — tiny buds designed specifically for sleeping, with no dangling cable</li>
+            <li><a href="https://amazon.com/dp/B08HMWZBXC?tag=audiotools20-20" target="_blank" rel="noopener">SleepPhones Wireless</a> — flat speakers in a soft headband, ideal for side sleepers</li>
+            <li><a href="https://amazon.com/dp/B07FSLCNZ3?tag=audiotools20-20" target="_blank" rel="noopener">Yogasleep Dohm</a> — a classic mechanical sound machine for steady bedside noise</li>
+        </ul>
+        <p class="gear-note">Links may earn us a commission at no extra cost to you.</p>
+    </section>
+
     <div class="cta-section">
-        <h2>Ready to Sleep Better?</h2>
+        <h2>Ready to sleep better?</h2>
         <p>Try our free noise generator with adjustable white, pink, and brown noise.</p>
         <a href="/#generator" class="cta-button"><i class="ri-play-circle-line"></i> Start Sleep Sounds</a>
     </div>
