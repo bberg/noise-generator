@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block title %}Page Not Found (404) | Focus Hum{% endblock %}
+
+{% block description %}That page drifted off into the static. Head back to the noise generator or explore one of our guides to find your perfect sound.{% endblock %}
+
+{% block meta_extra %}
+<meta name="robots" content="noindex, follow">
+{% endblock %}
+
+{% block tagline %}Looks like this page faded into the background noise{% endblock %}
+
+{% block content %}
+<div class="use-case-container">
+    <div class="use-case-hero">
+        <h1>404 &mdash; This page faded out</h1>
+        <p class="hero-subtitle">The page you were after isn't here. Maybe it drifted off into the static. Let's get you back to something steady.</p>
+        <a href="/#generator" class="cta-button"><i class="ri-play-circle-line"></i> Open the Noise Generator</a>
+    </div>
+
+    <section class="use-case-section">
+        <h2>Popular guides</h2>
+        <div class="cross-links">
+            <a href="/for-sleep" class="cross-link-card">
+                <i class="ri-moon-line"></i>
+                <div class="link-content">
+                    <h4>Noise for Sleep</h4>
+                    <p>Fall asleep faster, stay asleep</p>
+                </div>
+            </a>
+            <a href="/for-focus" class="cross-link-card">
+                <i class="ri-focus-3-line"></i>
+                <div class="link-content">
+                    <h4>Noise for Focus</h4>
+                    <p>Deep work and concentration</p>
+                </div>
+            </a>
+            <a href="/for-studying" class="cross-link-card">
+                <i class="ri-book-open-line"></i>
+                <div class="link-content">
+                    <h4>Noise for Studying</h4>
+                    <p>Mask distractions, study longer</p>
+                </div>
+            </a>
+            <a href="/for-tinnitus" class="cross-link-card">
+                <i class="ri-ear-line"></i>
+                <div class="link-content">
+                    <h4>Noise for Tinnitus</h4>
+                    <p>Sound masking and relief</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section class="use-case-section">
+        <h2>More from the Audio Tools Network</h2>
+        <div class="cross-links">
+            <a href="https://binauralhq.com" class="cross-link-card">
+                <i class="ri-headphone-line"></i>
+                <div class="link-content">
+                    <h4>BinauralHQ</h4>
+                    <p>Binaural beats &amp; brainwaves</p>
+                </div>
+            </a>
+            <a href="https://omtones.com" class="cross-link-card">
+                <i class="ri-ancient-gate-line"></i>
+                <div class="link-content">
+                    <h4>OmTones</h4>
+                    <p>Ambient meditation drones</p>
+                </div>
+            </a>
+        </div>
+    </section>
+</div>
+{% endblock %}

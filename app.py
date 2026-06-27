@@ -49,6 +49,10 @@ def for_babies():
 def for_office():
     return render_template('for-office.html', active_page='for-office')
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+
 @app.route('/favicon.ico')
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),
@@ -76,61 +80,61 @@ def sitemap():
     <url>
         <loc>https://focushum.com/science</loc>
         <lastmod>{today}</lastmod>
-        <priority>0.9</priority>
+        <priority>0.7</priority>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://focushum.com/applications</loc>
         <lastmod>{today}</lastmod>
-        <priority>0.9</priority>
+        <priority>0.7</priority>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://focushum.com/traditions</loc>
         <lastmod>{today}</lastmod>
-        <priority>0.9</priority>
+        <priority>0.7</priority>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://focushum.com/faq</loc>
         <lastmod>{today}</lastmod>
-        <priority>0.9</priority>
+        <priority>0.7</priority>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://focushum.com/for-sleep</loc>
         <lastmod>{today}</lastmod>
-        <priority>0.9</priority>
+        <priority>0.8</priority>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://focushum.com/for-focus</loc>
         <lastmod>{today}</lastmod>
-        <priority>0.9</priority>
+        <priority>0.8</priority>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://focushum.com/for-studying</loc>
         <lastmod>{today}</lastmod>
-        <priority>0.9</priority>
+        <priority>0.8</priority>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://focushum.com/for-tinnitus</loc>
         <lastmod>{today}</lastmod>
-        <priority>0.9</priority>
+        <priority>0.8</priority>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://focushum.com/for-babies</loc>
         <lastmod>{today}</lastmod>
-        <priority>0.9</priority>
+        <priority>0.8</priority>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://focushum.com/for-office</loc>
         <lastmod>{today}</lastmod>
-        <priority>0.9</priority>
+        <priority>0.8</priority>
         <changefreq>monthly</changefreq>
     </url>
 </urlset>'''
