@@ -2079,3 +2079,174 @@ body {
 .network-card i{color:var(--primary);font-size:1.4rem;}
 .nt-name{font-weight:700;color:var(--text);}
 .nt-blurb{font-size:.8125rem;color:var(--text-secondary);}
+
+
+/* === DESIGN SYSTEM V2 === */
+/* ============================================================
+   Audio Tools Network — Design System v2 (SITE: Focus Hum)
+   Strategy: (1) per-site PALETTE via token overrides = instant
+   distinct identity; (2) shared ELEVATION layer = world-class bar.
+   Mood: Calm, credible, night-ready. Spa meets signal lab.
+   Tagline north star: "Sound for a quieter mind."
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap');
+
+/* ---- Focus Hum palette: indigo-dusk / desaturated slate-blue ---- */
+:root {
+  --primary: #8A90C8;          /* lifted from brief #6C72A6 for AA on dark */
+  --primary-dark: #6C72A6;
+  --primary-light: #D6DAF2;
+  --accent: #9FB4C7;           /* misty slate-blue */
+  --bg: #15171F;
+  --surface: #1F2230;
+  --surface-raised: #262A3B;
+  --text: #ECEEF6;
+  --text-secondary: #AEB3C9;
+  --text-muted: #7C8199;
+  --border: #2A2E40;
+  --border-focus: #3A3F58;
+  --grad: linear-gradient(135deg, #B6C6D6 0%, #A2A8DC 52%, #C9B7E0 110%);
+  --grad-page: linear-gradient(160deg, #1A1D28 0%, #242942 55%, #2E2A40 100%);
+  --glow: 0 0 0 1px rgba(138,144,200,.16), 0 22px 60px -16px rgba(46,42,64,.7);
+  --shadow-lg: 0 28px 70px -24px rgba(0,0,0,.8), 0 10px 26px -14px rgba(0,0,0,.6);
+  --num: 'Inter', system-ui, sans-serif;
+}
+
+/* ---- Ambient background: indigo-dusk depth, not flat ---- */
+body {
+  background:
+    radial-gradient(1200px 680px at 16% -10%, rgba(138,144,200,.20), transparent 60%),
+    radial-gradient(1000px 620px at 90% 4%, rgba(159,180,199,.12), transparent 56%),
+    radial-gradient(900px 700px at 50% 124%, rgba(185,166,214,.12), transparent 60%),
+    var(--bg) !important;
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---- Container: glassy hairline card with soft colored lift ---- */
+.container {
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: 24px;
+  box-shadow: var(--shadow-lg), var(--glow);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,0) 280px),
+    var(--grad-page);
+}
+
+/* ---- Hero: Fraunces display wordmark, gradient-clip ---- */
+.page-header {
+  padding: 3.75rem 3rem 2.5rem;
+  background: transparent;
+  border-bottom: 1px solid rgba(255,255,255,.05);
+}
+.header-content h1,
+.header-content .site-title {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(2.7rem, 5.2vw, 3.7rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.04;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.tagline {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.12rem;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--text-secondary);
+  max-width: 48ch;
+  margin: 0.9rem auto 0;
+  line-height: 1.55;
+  letter-spacing: 0.005em;
+}
+.page-header::after {
+  height: 2px;
+  background: var(--grad);
+  opacity: .55;
+}
+
+/* ---- Badges: refined glass pills ---- */
+.header-badge {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 2rem;
+  backdrop-filter: blur(6px);
+  color: var(--text-secondary);
+  transition: transform .2s ease, border-color .2s ease;
+}
+.header-badge:hover { transform: translateY(-1px); border-color: rgba(138,144,200,.42); }
+.header-badge i { color: var(--accent); }
+
+/* ---- Nav: calm glass bar, animated active underline ---- */
+.mini-nav { background: rgba(255,255,255,.02); border-bottom: 1px solid rgba(255,255,255,.05); }
+.nav-link { transition: color .2s ease, background .2s ease; border-right-color: rgba(255,255,255,.05); }
+.nav-link::after {
+  content: ''; position: absolute; left: 1.4rem; right: 1.4rem; bottom: 0;
+  height: 2px; background: var(--grad); transform: scaleX(0); transform-origin: left;
+  transition: transform .24s ease;
+}
+.nav-link:hover { color: var(--text); background: rgba(138,144,200,.08); }
+.nav-link:hover::after { transform: scaleX(1); }
+
+/* ---- Primary actions: soft gradient pill, gentle glow + lift ---- */
+button.btn-primary, .btn-primary, .play-btn, .play-button, button[class*="play"],
+.generate-btn, .primary-btn, .btn--primary, .start-btn, button[class*="start"] {
+  background: var(--grad) !important;
+  border: none !important;
+  color: #14161e !important;
+  font-weight: 700 !important;
+  border-radius: 999px !important;
+  box-shadow: 0 12px 34px -10px rgba(138,144,200,.55), inset 0 1px 0 rgba(255,255,255,.35) !important;
+  transition: transform .18s ease, box-shadow .18s ease, filter .18s ease !important;
+}
+button.btn-primary:hover, .btn-primary:hover, .play-btn:hover, .play-button:hover,
+button[class*="play"]:hover, .generate-btn:hover, .primary-btn:hover, .btn--primary:hover,
+.start-btn:hover, button[class*="start"]:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 18px 44px -10px rgba(138,144,200,.7), inset 0 1px 0 rgba(255,255,255,.45) !important;
+  filter: saturate(1.05) brightness(1.03) !important;
+}
+
+/* ---- Inputs / sliders: refined, accent-colored ---- */
+input, select, textarea {
+  border-radius: 12px !important;
+  background: rgba(255,255,255,.03) !important;
+  border-color: var(--border) !important;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: var(--border-focus) !important;
+  box-shadow: 0 0 0 3px rgba(138,144,200,.18) !important;
+}
+input[type="range"] { accent-color: var(--primary); }
+
+/* Tabular numerals for timer / percent readouts */
+.timer, .time, .elapsed, .countdown, .percent, .value, [class*="readout"],
+[class*="percentage"], [class*="level-value"], output {
+  font-family: var(--num) !important;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.01em;
+}
+
+/* ---- Cards / panels: gentle hover lift ---- */
+.preset-btn, .card, .panel, .tool-card, .feature-card, .network-card, .noise-card {
+  border-radius: 16px !important;
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+.network-card:hover, .tool-card:hover, .card:hover, .preset-btn:hover, .noise-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(138,144,200,.4);
+  box-shadow: 0 18px 40px -18px rgba(138,144,200,.5);
+}
+
+/* ---- Section accents ---- */
+h2 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+a { color: var(--primary-light); }
+::selection { background: rgba(138,144,200,.38); color: #fff; }
